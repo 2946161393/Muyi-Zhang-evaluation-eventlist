@@ -1,205 +1,111 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* style.css */
 
+/* font and background */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
     padding: 20px;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.add-event-btn {
-    background: #008cba;
-    color: white;
-    border: none;
-    padding: 12px 24px;
+  }
+  
+  /* container */
+  .container {
+    background-color: white;
+    padding: 20px;
+    border: 2px solid #e6e2d3;
     border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 140, 186, 0.3);
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    max-width: 800px;
     margin: 0 auto;
-}
-
-.add-event-btn:hover {
-    background: #007bb5;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 140, 186, 0.4);
-}
-
-.add-event-btn svg {
-    width: 20px;
-    height: 20px;
-}
-
-.events-table-container {
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    border: 3px solid #e6e2d3;
-}
-
-.events-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.events-table th {
-    background: #f0f0f0;
-    padding: 20px;
-    text-align: left;
-    font-weight: 700;
-    font-size: 18px;
-    color: #333;
-    border-bottom: 2px solid #e6e2d3;
-}
-
-.events-table td {
-    padding: 15px 20px;
-    border-bottom: 1px solid #e6e2d3;
-    background: #e6e2d3;
-    vertical-align: middle;
-}
-
-.events-table tr:last-child td {
-    border-bottom: none;
-}
-
-.event-input {
-    width: 100%;
-    padding: 8px 12px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
-    transition: border-color 0.3s ease;
-    background: white;
-}
-
-.event-input:focus {
-    outline: none;
-    border-color: #008cba;
-}
-
-.actions-cell {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-}
-
-.action-btn {
-    width: 40px;
-    height: 40px;
+  }
+  
+  /* add event */
+  .add-btn {
+    background-color: #008cba;
+    color: white;
+    padding: 10px 15px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     display: flex;
     align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    margin: 0 auto 20px;
     justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.edit-btn {
-    background: #008cba;
-}
-
-.edit-btn:hover {
-    background: #007bb5;
-    transform: scale(1.1);
-}
-
-.delete-btn {
-    background: #c94c4c;
-}
-
-.delete-btn:hover {
-    background: #b03e3e;
-    transform: scale(1.1);
-}
-
-.save-btn {
-    background: #4caf50;
-}
-
-.save-btn:hover {
-    background: #45a049;
-    transform: scale(1.1);
-}
-
-.cancel-btn {
-    background: #ff9800;
-}
-
-.cancel-btn:hover {
-    background: #f57c00;
-    transform: scale(1.1);
-}
-
-.action-btn svg {
-    width: 20px;
-    height: 20px;
-    fill: white;
-}
-
-.loading {
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  
+  .add-btn:hover {
+    background-color: #006f98;
+  }
+  
+  /* table */
+  #eventTable {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  #eventTable th,
+  #eventTable td {
+    border: 1px solid #e6e2d3;
+    padding: 12px;
     text-align: center;
-    padding: 40px;
-    color: #666;
-    font-size: 18px;
-}
-
-.empty-state {
-    text-align: center;
-    padding: 60px 20px;
-    color: #666;
-}
-
-.empty-state h3 {
-    margin-bottom: 10px;
-    color: #333;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        padding: 10px;
-    }
-
-    .events-table th,
-    .events-table td {
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    .actions-cell {
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .action-btn {
-        width: 35px;
-        height: 35px;
-    }
-
-    .add-event-btn {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-}
+  }
+  
+  #eventTable th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+  }
+  
+  #eventTable td {
+    background-color: #e6e2d3;
+  }
+  
+  input[type="text"],
+  input[type="date"] {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* button*/
+  button {
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  button.edit {
+    background-color: #008cba;
+    color: white;
+  }
+  
+  button.delete {
+    background-color: #c94c4c;
+    color: white;
+  }
+  
+  button.save {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  button.cancel {
+    background-color: #c94c4c;
+    color: white;
+  }
+  
+  button svg {
+    width: 16px;
+    height: 16px;
+  }
+  
