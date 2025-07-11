@@ -1,111 +1,170 @@
-/* style.css */
-
-/* font and background */
-body {
+/* basic stuff */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #f5f5f5;
     padding: 20px;
   }
   
-  /* container */
-  .container {
-    background-color: white;
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    /* add button */
+    .addbutton {
+        background-color: #008cba;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-bottom: 30px;
+    }
+    .addbutton:hover {
+        background-color: #007bb5;
+    }
+  
+  /* table container */
+  .table-wrapper {
+    background: white;
+    border-radius: 15px;
+    border: 3px solid #e6e2d3;
     padding: 20px;
-    border: 2px solid #e6e2d3;
-    border-radius: 8px;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  /* add event */
-  .add-btn {
-    background-color: #008cba;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 16px;
-    margin: 0 auto 20px;
-    justify-content: center;
-  }
-  
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  
-  .add-btn:hover {
-    background-color: #006f98;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   }
   
   /* table */
   #eventTable {
     width: 100%;
-    border-collapse: collapse;
-  }
-  
-  #eventTable th,
-  #eventTable td {
-    border: 1px solid #e6e2d3;
-    padding: 12px;
-    text-align: center;
+    border-collapse: separate;
+    border-spacing: 0 10px;
   }
   
   #eventTable th {
-    background-color: #f0f0f0;
+    background-color: white;
+    padding: 20px;
+    text-align: left;
     font-weight: bold;
+    font-size: 18px;
+    color: #333;
   }
   
-  #eventTable td {
-    background-color: #e6e2d3;
+    #eventTable td {
+        padding: 15px 20px;
+        background-color: #e6e2d3;
+        vertical-align: middle;
+    }
+  
+  /* round corners for rows */
+  #eventTable tbody tr td:first-child {
+    border-radius: 10px 0 0 10px;
+  }
+  #eventTable tbody tr td:last-child {
+    border-radius: 0 10px 10px 0;
   }
   
-  input[type="text"],
-  input[type="date"] {
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  /* inputs */
+  input[type="text"], input[type="date"] {
+    width: 100%;
+    padding: 8px 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    background: white;
+  }
+  input[type="text"]:focus, input[type="date"]:focus {
+    border-color: #008cba;
+    outline: none;
   }
   
-  /* button*/
-  button {
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 4px;
-    display: inline-flex;
-    align-items: center;
+  /* action buttons container */
+  .action-buttons {
+    display: flex;
+    gap: 8px;
     justify-content: center;
   }
   
-  button.edit {
-    background-color: #008cba;
-    color: white;
+    /* buttons */
+    .action-btn {
+        width: 40px;
+        height: 40px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .action-btn:hover {
+        transform: scale(1.1);
+    }
+    
+    .action-btn svg {
+        width: 20px;
+        height: 20px;
+        fill: white;
+    }
+    
+    /* button colors */
+    .action-btn.edit {
+        background-color: #008cba;
+    }
+    .action-btn.delete {
+        background-color: #c94c4c;
+    }
+    .action-btn.save {
+        background-color: #4caf50;
+    }
+    .action-btn.cancel {
+        background-color: #ff9800;
+    }
+  
+  .action-btn.edit:hover {
+    background-color: #007bb5;
+  }
+  .action-btn.delete:hover {
+    background-color: #b03e3e;
+  }
+  .action-btn.save:hover {
+    background-color: #45a049;
+  }
+  .action-btn.cancel:hover {
+    background-color: #f57c00;
   }
   
-  button.delete {
-    background-color: #c94c4c;
-    color: white;
+  /* add row style */
+  .add-row td {
+    background-color: #e6e2d3;
   }
   
-  button.save {
-    background-color: #4caf50;
-    color: white;
+  /* mobile */
+  @media (max-width: 768px) {
+    .container {
+      padding: 10px;
+    }
+    #eventTable th, #eventTable td {
+      padding: 10px;
+      font-size: 14px;
+    }
+    .action-buttons {
+      flex-direction: column;
+      gap: 5px;
+    }
+    .action-btn {
+      width: 35px;
+      height: 35px;
+    }
+    .addbutton {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
   }
-  
-  button.cancel {
-    background-color: #c94c4c;
-    color: white;
-  }
-  
-  button svg {
-    width: 16px;
-    height: 16px;
-  }
-  
